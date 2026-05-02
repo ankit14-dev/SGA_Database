@@ -1,0 +1,21 @@
+INSERT INTO AUTHOR (id, name) VALUES (1, 'Author One');
+INSERT INTO AUTHOR (id, name) VALUES (2, 'Author Two');
+INSERT INTO AUTHOR (id, name) VALUES (3, 'Author Three');
+INSERT INTO AUTHOR (id, name) VALUES (4, 'Author Four');
+INSERT INTO AUTHOR (id, name) VALUES (5, 'Author Five');
+INSERT INTO AUTHOR (id, name) VALUES (6, 'Author Six');
+INSERT INTO AUTHOR (id, name) VALUES (7, 'Author Seven');
+INSERT INTO AUTHOR (id, name) VALUES (8, 'Author Eight');
+INSERT INTO AUTHOR (id, name) VALUES (9, 'Author Nine');
+INSERT INTO AUTHOR (id, name) VALUES (10, 'Author Ten');
+
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (1, 'Book 1', 'ISBN-001', 1);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (2, 'Book 2', 'ISBN-002', 2);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (3, 'Book 3', 'ISBN-003', 3);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (4, 'Book 4', 'ISBN-004', 4);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (5, 'Book 5', 'ISBN-005', 5);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (6, 'Book 6', 'ISBN-006', 6);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (7, 'Book 7', 'ISBN-007', 7);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (8, 'Book 8', 'ISBN-008', 8);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (9, 'Book 9', 'ISBN-009', 9);
+INSERT INTO BOOK (id, title, isbn, author_id) VALUES (10, 'Book 10', 'ISBN-010', 10);
