@@ -1,5 +1,7 @@
 # Project Report: Books & Authors Manager
 
+Prepared by: Ankit Kumar
+
 ## Entity Relationship Design
 
 - Entities: `Author`, `Book`.

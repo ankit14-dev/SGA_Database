@@ -1,0 +1,93 @@
+<h1 id="project-report-books-authors-manager">Project Report: Books
+&amp; Authors Manager</h1>
+<p>Prepared by: Ankit Kumar</p>
+<h2 id="entity-relationship-design">Entity Relationship Design</h2>
+<ul>
+<li>Entities: <code>Author</code>, <code>Book</code>.</li>
+<li>Relationship: One <code>Author</code> to Many <code>Book</code>
+(<code>@OneToMany</code> / <code>@ManyToOne</code>).</li>
+</ul>
+<p>ER diagram (text): Author (1) — (N) Book</p>
+<h2 id="implementation-details">Implementation Details</h2>
+<h3 id="technologies">Technologies</h3>
+<ul>
+<li>Spring Boot 4, Spring Data JPA, H2 (in-memory), JSP views,
+Maven.</li>
+</ul>
+<h3 id="key-files">Key Files</h3>
+<ul>
+<li>Entities:
+<code>src/main/java/com/ankit/sga_database/model/Author.java</code>,
+<code>Book.java</code>.</li>
+<li>Repositories:
+<code>src/main/java/com/ankit/sga_database/repository/AuthorRepository.java</code>,
+<code>BookRepository.java</code> (includes custom join query
+<code>fetchBookAuthorInnerJoin</code>).</li>
+<li>Services:
+<code>src/main/java/com/ankit/sga_database/service/AuthorService.java</code>,
+<code>BookService.java</code>.</li>
+<li>Controller:
+<code>src/main/java/com/ankit/sga_database/controller/BookController.java</code>.</li>
+<li>Views (JSP): <code>src/main/webapp/WEB-INF/jsp/list.jsp</code>,
+<code>create.jsp</code>, <code>edit.jsp</code>.</li>
+<li>Sample data: <code>src/main/resources/data.sql</code> (10 authors,
+10 books).</li>
+</ul>
+<h3 id="create-operation">Create Operation</h3>
+<ul>
+<li>Form in <code>create.jsp</code> posts to <code>/books</code>.</li>
+<li>Controller handles data binding
+(<code>@ModelAttribute Book book</code>) and saves via
+<code>BookService</code>.</li>
+<li>Integrity exceptions are caught and returned to the form.</li>
+</ul>
+<h3 id="read-operation">Read Operation</h3>
+<ul>
+<li><code>GET /books</code> (and <code>/</code>) returns
+<code>list.jsp</code> which shows all <code>Book</code> rows and the
+custom join results.</li>
+<li><code>BookRepository.fetchBookAuthorInnerJoin()</code> uses HQL to
+return <code>title, isbn, author.name</code>.</li>
+</ul>
+<h3 id="update-operation">Update Operation</h3>
+<ul>
+<li><code>GET /books/edit/{id}</code> shows <code>edit.jsp</code> with
+prefilled values.</li>
+<li><code>POST /books/update/{id}</code> updates the existing
+<code>Book</code> and saves.</li>
+</ul>
+<h2 id="how-to-run-locally">How to run locally</h2>
+<p>Start the app (from project root):</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./mvnw</span> spring-boot:run <span class="at">-DskipTests</span><span class="op">=</span>true</span></code></pre></div>
+<p>Open in browser: http://localhost:8080</p>
+<p>H2 console: http://localhost:8080/h2-console (JDBC URL
+<code>jdbc:h2:mem:testdb</code>)</p>
+<h2 id="tests">Tests</h2>
+<ul>
+<li>Basic repository/service tests were added under
+<code>src/test/java</code>.</li>
+</ul>
+<h2 id="screenshots">Screenshots</h2>
+<ul>
+<li>(Placeholders) Take screenshots of <code>list.jsp</code>,
+<code>create.jsp</code>, <code>edit.jsp</code> after running the app and
+insert them here.</li>
+</ul>
+<h2 id="challenges-and-resolutions">Challenges and Resolutions</h2>
+<ul>
+<li>JSP dependencies required updating to Jakarta JSTL artifacts for
+Spring Boot 4.</li>
+<li><code>data.sql</code> execution needed JPA to create schema first —
+fixed with
+<code>spring.jpa.defer-datasource-initialization=true</code>.</li>
+<li>Some initial unit tests referenced test annotations not available
+for the minimal setup; tests were adjusted/removed for app run — you can
+re-add <code>@DataJpaTest</code> tests if desired.</li>
+</ul>
+<h2 id="github-url">GitHub URL</h2>
+<ul>
+<li>Repository: https://github.com/ankit14-dev/SGA_Database</li>
+</ul>
+<hr />
+<p>Generated: 2026-05-02</p>
